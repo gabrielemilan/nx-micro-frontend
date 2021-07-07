@@ -34,6 +34,13 @@
       "tags": [],
       "implicitDependencies": ["menu"]
     },
+    "mtg-boosters": {
+      "tags": []
+    },
+    "mtg-boosters-e2e": {
+      "tags": [],
+      "implicitDependencies": ["mtg-boosters"]
+    },
     "mtg-singles": {
       "tags": []
     },
