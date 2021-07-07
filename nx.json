@@ -30,30 +30,14 @@
     "menu": {
       "tags": []
     },
-    "menu-e2e": {
-      "tags": [],
-      "implicitDependencies": ["menu"]
-    },
     "mtg-boosters": {
       "tags": []
-    },
-    "mtg-boosters-e2e": {
-      "tags": [],
-      "implicitDependencies": ["mtg-boosters"]
     },
     "mtg-singles": {
       "tags": []
     },
-    "mtg-singles-e2e": {
-      "tags": [],
-      "implicitDependencies": ["mtg-singles"]
-    },
     "shell": {
       "tags": []
-    },
-    "shell-e2e": {
-      "tags": [],
-      "implicitDependencies": ["shell"]
     }
   }
 }
