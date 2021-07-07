@@ -1,14 +1,14 @@
 {
-  "version": 2,
+  "version": 1,
   "projects": {
     "shell": {
       "projectType": "application",
       "root": "apps/shell",
       "sourceRoot": "apps/shell/src",
       "prefix": "nx-micro-frontend",
-      "targets": {
+      "architect": {
         "build": {
-          "executor": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/shell",
@@ -55,7 +55,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "executor": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "shell:build:production"
@@ -67,13 +67,13 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "shell:build"
           }
         },
         "lint": {
-          "executor": "@nrwl/linter:eslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
               "apps/shell/src/**/*.ts",
@@ -82,7 +82,7 @@
           }
         },
         "test": {
-          "executor": "@nrwl/jest:jest",
+          "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/shell"],
           "options": {
             "jestConfig": "apps/shell/jest.config.js",
@@ -95,9 +95,9 @@
       "root": "apps/shell-e2e",
       "sourceRoot": "apps/shell-e2e/src",
       "projectType": "application",
-      "targets": {
+      "architect": {
         "e2e": {
-          "executor": "@nrwl/cypress:cypress",
+          "builder": "@nrwl/cypress:cypress",
           "options": {
             "cypressConfig": "apps/shell-e2e/cypress.json",
             "tsConfig": "apps/shell-e2e/tsconfig.e2e.json",
@@ -110,7 +110,7 @@
           }
         },
         "lint": {
-          "executor": "@nrwl/linter:eslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/shell-e2e/**/*.{js,ts}"]
           }
@@ -121,7 +121,18 @@
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
-  "generators": {
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
     "@nrwl/angular:application": {
       "style": "scss",
       "linter": "eslint",
