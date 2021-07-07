@@ -12,11 +12,34 @@ import { AppComponent } from './app.component';
       [
         {
           path: '',
+          redirectTo: 'singles',
+          pathMatch: 'full',
+        },
+        {
+          path: '',
           outlet: 'menu',
           loadChildren: () =>
             loadRemoteModule({
               remoteEntry: 'http://localhost:4201/remoteEntry.js',
               remoteName: 'menu',
+              exposedModule: './Module',
+            }).then((m) => m.AppModule),
+        },
+        {
+          path: 'singles',
+          loadChildren: () =>
+            loadRemoteModule({
+              remoteEntry: 'http://localhost:4202/remoteEntry.js',
+              remoteName: 'mtgSingles',
+              exposedModule: './Module',
+            }).then((m) => m.AppModule),
+        },
+        {
+          path: 'boosters',
+          loadChildren: () =>
+            loadRemoteModule({
+              remoteEntry: 'http://localhost:4203/remoteEntry.js',
+              remoteName: 'mtgBoosters',
               exposedModule: './Module',
             }).then((m) => m.AppModule),
         },

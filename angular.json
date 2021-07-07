@@ -18,7 +18,10 @@
             "tsConfig": "apps/menu/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["apps/menu/src/favicon.ico", "apps/menu/src/assets"],
-            "styles": ["apps/menu/src/styles.scss"],
+            "styles": [
+              "apps/menu/src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
             "scripts": [],
             "extraWebpackConfig": "apps/menu/webpack.config.js",
             "commonChunk": false
@@ -116,7 +119,10 @@
               "apps/mtg-boosters/src/favicon.ico",
               "apps/mtg-boosters/src/assets"
             ],
-            "styles": ["apps/mtg-boosters/src/styles.scss"],
+            "styles": [
+              "apps/mtg-boosters/src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
             "scripts": [],
             "extraWebpackConfig": "apps/mtg-boosters/webpack.config.js",
             "commonChunk": false
@@ -214,7 +220,10 @@
               "apps/mtg-singles/src/favicon.ico",
               "apps/mtg-singles/src/assets"
             ],
-            "styles": ["apps/mtg-singles/src/styles.scss"],
+            "styles": [
+              "apps/mtg-singles/src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
             "scripts": [],
             "extraWebpackConfig": "apps/mtg-singles/webpack.config.js",
             "commonChunk": false
@@ -309,7 +318,10 @@
             "tsConfig": "apps/shell/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["apps/shell/src/favicon.ico", "apps/shell/src/assets"],
-            "styles": ["apps/shell/src/styles.scss"],
+            "styles": [
+              "apps/shell/src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
             "scripts": [],
             "extraWebpackConfig": "apps/shell/webpack.config.js",
             "commonChunk": false
