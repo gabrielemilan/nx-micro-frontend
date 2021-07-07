@@ -27,6 +27,20 @@
     ]
   },
   "projects": {
+    "menu": {
+      "tags": []
+    },
+    "menu-e2e": {
+      "tags": [],
+      "implicitDependencies": ["menu"]
+    },
+    "mtg-singles": {
+      "tags": []
+    },
+    "mtg-singles-e2e": {
+      "tags": [],
+      "implicitDependencies": ["mtg-singles"]
+    },
     "shell": {
       "tags": []
     },

@@ -1,6 +1,241 @@
 {
   "version": 1,
   "projects": {
+    "menu": {
+      "projectType": "application",
+      "root": "apps/menu",
+      "sourceRoot": "apps/menu/src",
+      "prefix": "nx-micro-frontend",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/menu",
+            "index": "apps/menu/src/index.html",
+            "main": "apps/menu/src/main.ts",
+            "polyfills": "apps/menu/src/polyfills.ts",
+            "tsConfig": "apps/menu/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["apps/menu/src/favicon.ico", "apps/menu/src/assets"],
+            "styles": ["apps/menu/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/menu/src/environments/environment.ts",
+                  "with": "apps/menu/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "menu:build:production"
+            },
+            "development": {
+              "browserTarget": "menu:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "menu:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/menu/src/**/*.ts",
+              "apps/menu/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/menu"],
+          "options": {
+            "jestConfig": "apps/menu/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "menu-e2e": {
+      "root": "apps/menu-e2e",
+      "sourceRoot": "apps/menu-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/menu-e2e/cypress.json",
+            "tsConfig": "apps/menu-e2e/tsconfig.e2e.json",
+            "devServerTarget": "menu:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "menu:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/menu-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "mtg-singles": {
+      "projectType": "application",
+      "root": "apps/mtg-singles",
+      "sourceRoot": "apps/mtg-singles/src",
+      "prefix": "nx-micro-frontend",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/mtg-singles",
+            "index": "apps/mtg-singles/src/index.html",
+            "main": "apps/mtg-singles/src/main.ts",
+            "polyfills": "apps/mtg-singles/src/polyfills.ts",
+            "tsConfig": "apps/mtg-singles/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/mtg-singles/src/favicon.ico",
+              "apps/mtg-singles/src/assets"
+            ],
+            "styles": ["apps/mtg-singles/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/mtg-singles/src/environments/environment.ts",
+                  "with": "apps/mtg-singles/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "mtg-singles:build:production"
+            },
+            "development": {
+              "browserTarget": "mtg-singles:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mtg-singles:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/mtg-singles/src/**/*.ts",
+              "apps/mtg-singles/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/mtg-singles"],
+          "options": {
+            "jestConfig": "apps/mtg-singles/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mtg-singles-e2e": {
+      "root": "apps/mtg-singles-e2e",
+      "sourceRoot": "apps/mtg-singles-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/mtg-singles-e2e/cypress.json",
+            "tsConfig": "apps/mtg-singles-e2e/tsconfig.e2e.json",
+            "devServerTarget": "mtg-singles:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "mtg-singles:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/mtg-singles-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
     "shell": {
       "projectType": "application",
       "root": "apps/shell",
