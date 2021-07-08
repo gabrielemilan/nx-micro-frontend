@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'windowed-observable';
 
 @Component({
   selector: 'nx-micro-frontend-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'menu';
+
+  navigate(path: string) {
+    const observable = new Observable('menu');
+    observable.publish(path);
+  }
 }
